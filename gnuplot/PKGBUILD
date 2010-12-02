@@ -29,7 +29,7 @@ build() {
               --with-gihdir=/usr/share/gnuplot \
               --datadir=/usr/share \
               --with-readline=gnu \
-              --with-texdir=$pkgdir/usr/share/texmf/tex/latex/gnuplot
+              --with-texdir=$pkgdir/usr/share/texmf/tex/latex/gnuplot \
 	      --with-no-gd
   make pkglibexecdir=/usr/bin
 }
