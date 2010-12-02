@@ -1,5 +1,5 @@
-# $Id: PKGBUILD 101797 2010-12-02 09:31:27Z giovanni $
-# Maintainer: Giovanni Scafora <giovanni@archlinux.org>
+ $Id: PKGBUILD 101797 2010-12-02 09:31:27Z giovanni $
+# Maintainer:  Duca < edumlopes >
 # Contributor: Douglas Soares de Andrade <douglas@archlinux.org>
 
 pkgname=mercurial
@@ -9,7 +9,7 @@ pkgdesc="A scalable distributed SCM tool"
 arch=('i686' 'x86_64')
 url="http://www.selenic.com/mercurial"
 license=('GPL')
-depends=('python2')
+depends=('python')
 optdepends=()
 source=(http://www.selenic.com/mercurial/release/${pkgname}-${pkgver}.tar.gz
         mercurial.profile)
@@ -18,10 +18,10 @@ md5sums=('e9e99a0a20ded8f6d9463ffb94021b12'
 
 build() {
   cd "${srcdir}/${pkgname}-${pkgver}"
-  python2 setup.py install --root="${pkgdir}/" --optimize=1 || return 1
+  python setup.py install --root="${pkgdir}/" --optimize=1 || return 1
 
-  sed -i -e 's#env python#env python2#' \
-    "${pkgdir}"/usr/lib/python2.7/site-packages/mercurial/lsprof.py
+  sed -i -e 's#env python#env python#' \
+    "${pkgdir}"/usr/lib/python.7/site-packages/mercurial/lsprof.py
 
   install -d ${pkgdir}/usr/share/man/{man1,man5}
   install -m644 doc/hg.1 "${pkgdir}/usr/share/man/man1" || return 1
